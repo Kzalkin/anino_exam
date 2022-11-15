@@ -1,24 +1,21 @@
-# README
+# SETUP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Clone repository in desired directory
+* Start the server with 'bin/rails s' in terminal 
+* Setup database with bin/rails db:setup
+* Seed database with bin/rails db:seed
 
-Things you may want to cover:
+### admin route needs Authorization Bearer Token
 
-* Ruby version
+* eyJhbGciOiJIUzI1NiJ9.eyJzdGF0dXMiOiJTdWNjZXNzIiwiZXhwIjoxNjY4NjA5NDYyfQ.04iD6psqd2SclCRlj9f_ggepRdBSvCSkt4OjMU2wwUU
 
-* System dependencies
+### gems
 
-* Configuration
+* active_model_serializers
+* rspec-rails
+* faker
+* jwt
 
-* Database creation
+### database
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* PostgreSQL
