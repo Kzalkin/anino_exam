@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :leaderboard, only: %i[show] do
     resources :user, only: %i[update] do 
       put 'add_score', to: 'leaderboard#add_score'
+      patch 'add_score', to: 'leaderboard#add_score'
     end
   end
 
