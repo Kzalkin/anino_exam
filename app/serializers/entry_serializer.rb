@@ -19,7 +19,7 @@ class EntrySerializer < ActiveModel::Serializer
   end
 
   def rank
-    Entry.order("score DESC").order("created_at ASC").index(self.object)
+    Entry.sorted_score.index(self.object)
   end
   
   def name
