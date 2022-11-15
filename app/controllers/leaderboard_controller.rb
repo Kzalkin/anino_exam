@@ -2,7 +2,7 @@ class LeaderboardController < ApplicationController
     def show
         @board = Board.find(params[:id])
 
-        render json: @board
+        render json: @board, flag: "rank"
     end
 
     def add_score
@@ -11,7 +11,7 @@ class LeaderboardController < ApplicationController
         @entry.score = @entry.score + params[:score_to_add].to_i
 
         if @entry.save
-            render json: @entry
+            render json: @entry, flag: "add_score"
         else
             render json: {status: "Error", errors: @entry.errors}
         end

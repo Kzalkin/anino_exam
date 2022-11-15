@@ -1,5 +1,28 @@
 class EntrySerializer < ActiveModel::Serializer
   type 'entry'
 
-  attributes :id, :score, :board_id, :score, :scored_at, :user_id
+  
+  attribute :id, if: :add_score?
+  attribute :board_id, if: :add_score?
+  
+  attributes :score, :user_id, :scored_at
+
+  attribute :rank, if: :ranking?
+  attribute :name, if: :ranking?
+
+  def ranking?
+    @instance_options[:flag] == "rank"
+  end
+
+  def add_score?
+    @instance_options[:flag] == "add_score"
+  end
+
+  def rank
+    Entry.order("score DESC").index(self.object)
+  end
+  
+  def name
+    self.object.user.name
+  end
 end
