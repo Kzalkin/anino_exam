@@ -2,7 +2,11 @@ class LeaderboardController < ApplicationController
     def show
         @board = Board.find(params[:id])
 
-        render json: @board, flag: "rank", per_page: params[:per_page], page: params[:page], id: params[:id]
+        render json: @board, 
+                    flag: "rank", 
+                    id: params[:id],
+                    page: params[:page], 
+                    per_page: params[:per_page]
     end
 
     def add_score
@@ -12,6 +16,7 @@ class LeaderboardController < ApplicationController
         if @entry
             @entry.score = @entry.score + params[:score_to_add].to_i
             @entry.save
+            
             render json: @entry, flag: "add_score"
         else
             render json: {status: "Error", errors: "No entry found"}
