@@ -19,7 +19,7 @@ class EntrySerializer < ActiveModel::Serializer
   end
 
   def rank
-    Entry.sorted_score.index(self.object)
+    Board.find(@instance_options[:id]).entries.sorted_score.index(self.object)
   end
   
   def name
