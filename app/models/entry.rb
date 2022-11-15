@@ -2,6 +2,8 @@ class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :board
 
+  validates :score, presence: true
+
   after_validation :set_scored_at
 
   def set_scored_at
