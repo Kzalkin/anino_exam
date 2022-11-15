@@ -1,4 +1,6 @@
 class Admin::LeaderboardController < ApplicationController
+    before_action :check_token
+    
     def create
         @board = Board.new(board_params)
 
