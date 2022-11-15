@@ -47,3 +47,5 @@ group :development do
 end
 
 gem 'active_model_serializers', '~> 0.10.2'
+
+gem 'faker'
