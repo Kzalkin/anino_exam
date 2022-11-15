@@ -2,7 +2,7 @@ class LeaderboardController < ApplicationController
     def show
         @board = Board.find(params[:id])
 
-        render json: @board, flag: "rank"
+        render json: @board, flag: "rank", per_page: params[:per_page], page: params[:page]
     end
 
     def add_score
