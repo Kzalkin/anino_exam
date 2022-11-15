@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :leaderboard, only: %i[show]
 
   namespace :admin do
-    resources :leaderboard, only: :index
+    resources :leaderboard, only: :create
   end
 end
